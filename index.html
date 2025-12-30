@@ -210,39 +210,37 @@ select{
 
 /* ================= GUEST CONTAINER ================= */
 /* ================= GUEST CONTAINER ================= */
+/* Desktop */
 .guest-container {
-  position: absolute; /* moves with page scroll */
-  top: 150px;
-  right: 20px;
-  width: 200px;       /* adjust width as needed */
-  background: rgba(255, 71, 87, 0.9);
+  position: relative;       /* absolute hata diya */
+  width: 100%;              /* card width ke hisaab se */
+  max-width: 700px;         /* baaki cards ke jaise */
+  margin: 0 auto 15px;      /* center align + bottom spacing */
+  min-height: 220px;        /* uniform height */
   padding: 10px;
-  border-radius: 10px;
   text-align: center;
-  z-index: 1500;
-  display: none;      /* hidden initially */
-  
+  box-sizing: border-box;
 }
 
 .guest-container img {
   width: 100%;
-  height: auto;       /* keep image proportional */
-  aspect-ratio: 3/4;  /* taller image, adjust as needed */
+  height: 150px;            /* fixed height for uniformity */
   border-radius: 8px;
-  object-fit: cover;  /* fills container without distortion */
+  object-fit: cover;
 }
 
-.guest-container p {
-  color: #fff;
-  font-weight: bold;
-  margin-top: 8px;
-  font-size: 14px;
+/* Mobile */
+@media (max-width: 600px) {
+  .guest-container {
+    width: 100%;            /* full width */
+    max-width: 100%;        /* constrain remove */
+    min-height: 180px;      /* thoda chhota */
+  }
+  .guest-container img {
+    height: 120px;          /* mobile image height */
+  }
 }
 
-@keyframes blink {
-  0%,100% {opacity: 1;}
-  50% {opacity: 0.5;}
-}
 /* ================= MOBILE FRIENDLY ================= */
 @media (max-width: 600px){
 
@@ -567,3 +565,4 @@ function openLightbox(src){
 
 </body>
 </html>
+
